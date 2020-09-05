@@ -1,9 +1,4 @@
-function loadItems(q) {
-  return fetch('/autocomplete?keyword=' + q)
-    .then(res => res.json())
-    .then(json => json);
-}
-
+// input 창에서 keyword 입력하면 받아서 전달
 function inputKeyword() {
   const searchField = document.querySelector('#search-field');
   searchField.addEventListener('input', e =>
@@ -14,6 +9,14 @@ function inputKeyword() {
   );
 }
 
+// 받은 keyword 로 데이터 추출
+function loadItems(q) {
+  return fetch('/autocomplete?keyword=' + q)
+    .then(res => res.json())
+    .then(json => json);
+}
+
+// 받은 데이터를 ul 하위에 입력
 function displayItems(items) {
   if (items.length > 0) {
     const container = document.querySelector('.autocomplete-results');
@@ -21,11 +24,12 @@ function displayItems(items) {
   }
 }
 
+// ul 하위에 입력할 li tag 생성
 function createHTMLString(item) {
   return `<li class="item">${item}</li>`;
 }
 
-// 선택하면 input창의 입력값이 해당 키워드로 변경
+// li tag 클릭시 값 받아오기
 function setEventListeners() {
   const itemList = document.querySelectorAll('.item');
   for (let item of itemList) {
@@ -33,6 +37,7 @@ function setEventListeners() {
   }
 }
 
+// 클릭 후 받은 값 Input 창에 넣고 list 창 닫기
 function setInput(val) {
   const inputTag = document.querySelector('#search-field');
   const resultItems = document.querySelectorAll('.item');
