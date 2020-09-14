@@ -35,3 +35,8 @@ Oogle 검색 서비스의 프론트엔드 개발자가 되어 사이트에 검�
 - api로 전달받은 결과값들은 li 태그로 각각 감싸서 class name 'autocomplete-results' ul 태그 하단에 넣어주시면 됩니다.
 - 검색어 입력 input의 id 는 'search-field' 입니다.
 - data.json 에서 검색어와 결과를 추가해 볼 수 있습니다!
+
+
+---
+## 구현화면
+
